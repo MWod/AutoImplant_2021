@@ -105,12 +105,12 @@ def training(training_params):
     model_save_path = training_params['model_save_path']
 
     data_module = ImplantReconstructionDataModule(data_path, training_csv, validation_csv, training_mode, batch_size, transforms=transforms,
-        num_workers=num_workers, iteration_size=cases_per_iter, use_hpc=use_hpc)
+        num_workers=num_workers, iteration_size=cases_per_iter)
 
     if to_load_checkpoint is None:
-        model = UNetModule(None, learning_rate, decay_rate, cost_function)
+        model = UNetModule(None, learning_rate, decay_rate, cost_function, use_hpc=use_hpc)
     else:
-        model = UNetModule.load_from_checkpoint(checkpoint_path=str(to_load_checkpoint), weights_path=None, learning_rate=learning_rate, decay_rate=decay_rate, cost_function=cost_function)
+        model = UNetModule.load_from_checkpoint(checkpoint_path=str(to_load_checkpoint), weights_path=None, learning_rate=learning_rate, decay_rate=decay_rate, cost_function=cost_function, use_hpc=use_hpc)
 
     if not save_best:
         trainer = pl.Trainer(gpus=gpus, logger=logger, max_epochs=num_iters, reload_dataloaders_every_n_epochs=1, default_root_dir=checkpoints_path)
@@ -122,7 +122,7 @@ def training(training_params):
         trainer = pl.Trainer(gpus=gpus, logger=logger, max_epochs=num_iters, reload_dataloaders_every_n_epochs=1, default_root_dir=checkpoints_path, callbacks=[checkpoint_callback])
         trainer.fit(model, data_module)
         trainer.save_checkpoint(str(to_save_checkpoint))
-        model = UNetModule.load_from_checkpoint(checkpoint_path=str(checkpoint_callback.best_model_path), weights_path=None, learning_rate=learning_rate, decay_rate=decay_rate, cost_function=cost_function)
+        model = UNetModule.load_from_checkpoint(checkpoint_path=str(checkpoint_callback.best_model_path), weights_path=None, learning_rate=learning_rate, decay_rate=decay_rate, cost_function=cost_function, use_hpc=use_hpc)
 
     if model_save_path is not None:
         pathlib.Path(model_save_path).parents[0].mkdir(parents=True, exist_ok=True)

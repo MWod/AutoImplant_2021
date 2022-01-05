@@ -330,14 +330,59 @@ def dice_loss(prediction, target):
     intersection = tc.sum(prediction * target)
     return 1 - ((2 * intersection + smooth) / (prediction.sum() + target.sum() + smooth))
 
-def parse_state_dict(initial_weights_path):
+def dice_loss_multichannel(prediction, target):
+    """
+    Dice loss for multichannel masks (equally averaged)
+    """
+    no_channels = prediction.size(1)
+    for i in range(no_channels):
+        if i == 0:
+            loss = dice_loss(prediction[:, i, :, :, :], target[:, i, :, :, :])
+        else:
+            loss += dice_loss(prediction[:, i, :, :, :], target[:, i, :, :, :])
+    loss = loss / no_channels
+    return loss
+
+def kld_approx(z, mean, std):
+    """
+    Approximate KL divergence (only for big batches)
+    """
+    p = tc.distributions.Normal(tc.zeros_like(mean), tc.ones_like(std))
+    q = tc.distributions.Normal(mean, std)
+    log_qzx = q.log_prob(z)
+    log_pz = p.log_prob(z)
+    kl = (log_qzx - log_pz)
+    kl = kl.sum(-1)
+    return tc.mean(kl)
+
+def kld(z, mean, std):
+    """
+    Direct KL divergence (for all-sized batches)
+    """
+    p = tc.distributions.Normal(tc.zeros_like(mean), tc.ones_like(std))
+    q = tc.distributions.Normal(mean, std)
+    kl = tc.distributions.kl_divergence(q, p)
+    kl = kl.mean()
+    return kl 
+
+def gl(x_hat, logscale, x):
+    """
+    Gaussian-likelihood
+    """
+    scale = tc.exp(logscale)
+    mean = x_hat
+    dist = tc.distributions.Normal(mean, scale)
+    log_pxz = dist.log_prob(x)
+    return -log_pxz.mean(dim=(1, 2, 3, 4))
+
+def parse_state_dict(initial_weights_path, keyword='unet.'):
     """
     Function to parse the state of PyTorch Lightning module directly to PyTorch model.
     """
     state_dict = tc.load(initial_weights_path)
     output_state_dict = dict()
     for key, value in state_dict.items():
-        output_state_dict[key.replace("unet.", "")] = value
+        output_state_dict[key.replace(keyword, "")] = value
     return output_state_dict
 
 def defect_refinement(implant, model, output_shape, boundary_offset, device="cpu"):

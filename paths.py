@@ -7,6 +7,7 @@ task_1_path = pathlib.PurePath(r'E:\Data\AutoImplant\Task1')
 task_2_path = pathlib.PurePath(r'E:\Data\AutoImplant\Task2')
 task_3_path = pathlib.PurePath(r'E:\Data\AutoImplant\Task3')
 combined_path = pathlib.PurePath(r'E:\Data\AutoImplant\Combined')
+combined_vae_path = pathlib.PurePath(r'E:\Data\AutoImplant\Combined_VAE')
 second_step_path = pathlib.PurePath(r'E:\Data\AutoImplant\Second_Step')
 results_path = pathlib.PurePath(r'E:\Data\AutoImplant\Results')
 stl_path = pathlib.PurePath(r'E:\Data\AutoImplant\STL')
@@ -37,6 +38,8 @@ combined_training_path = combined_path / "Training"
 
 second_step_training_path = second_step_path / "Training"
 second_step_implant_training_path = second_step_path / "Training_Implant"
+
+combined_vae_training_path = combined_vae_path / "Training"
 
 ### Results paths ###
 
@@ -74,6 +77,9 @@ combined_training_wr_csv_path = combined_path / "combined_training_wr.csv"
 second_step_training_csv_path = second_step_path / "second_step_training.csv"
 second_step_validation_csv_path = second_step_path / "second_step_validation.csv"
 
+combined_vae_training_csv_path = combined_vae_path / "combined_vae_training.csv"
+combined_vae_validation_csv_path = combined_vae_path / "combined_vae_validation.csv"
+
 ### Experiments and models paths ###
 simple_exp1_save_path = models_path / "Simple_Experiments"
 
@@ -95,4 +101,14 @@ combined_hpc_exp1_save_path = models_path / "Combined_HPC_Experiments" / "Combin
 second_step_exp1_save_path = models_path / "Second_Step_Experiments" / "Second_Step_Exp1"
 second_step_exp2_save_path = models_path / "Second_Step_Experiments" / "Second_Step_Exp2"
 second_step_exp3_save_path = models_path / "Second_Step_Experiments" / "Second_Step_Exp3"
+
+# Combined VAE
+combined_vae_exp1_save_path = models_path / "Combined_VAE_Experiments" / "Combined_VAE_Exp1"
+
+# VAE
+vae_exp1_save_path = models_path / "VAE_Experiments" / "VAE_Exp1"
+vae_exp2_save_path = models_path / "VAE_Experiments" / "VAE_Exp2"
+vae_exp3_save_path = models_path / "VAE_Experiments" / "VAE_Exp3"
+vae_exp4_save_path = models_path / "VAE_Experiments" / "VAE_Exp4"
+vae_exp5_save_path = models_path / "VAE_Experiments" / "VAE_Exp5"
 
