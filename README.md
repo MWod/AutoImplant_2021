@@ -1,5 +1,7 @@
 # AutoImplant 2021 - AGH Team Contribution
 
+# Work In Progress
+
 ## Introduction
 
 The respository contains source code developed by AGH Team for the [AutoImplant Challenge](https://autoimplant2021.grand-challenge.org/Home/) organized jointly with the [MICCAI 2021](https://miccai2021.org/en/) conference, and then further extended.
@@ -14,9 +16,11 @@ The method aims to propose a method for fully automatic cranial implant reconstr
 The input to the method is a binary mask of the skull with a cranial defect.
 The output of the method is an automatically calculated reconstruction of the cranial defect, or optionally the implant itself (in .nrrd format or .stl ready for 3-D printing). 
 
-TO DO - zdjęcie pipeline
+TODO - Pipeline Photo
 
-TO DO - zdjęcie implantów z drukarki 3-D oraz obok wizualizacja z jakiegoś softu
+TODO - 3-D Printer Output
+
+TODO - Visualization of the output in AR
 
 The full descrption of the proposed method is presented in [Link](TODO)
 
@@ -46,8 +50,7 @@ The code structure is follows:
 
 * The training files:
     * [training_implant_reconstruction.py](training_implant_reconstruction.py) - This file is used to train the defect reconstruction / defect refinement (based on PyTorch Lightning).
-    * [training_adversarial_augmentation.py](training_adversarial_augmentation.py) - TO DO
-    * [training_variational_augmentation.py](training_variational_augmentation.py) - TO DO
+    * [training_variational_augmentation.py](training_variational_augmentation.py) - This file is used to train the variational augmentation (based on PyTorch Lightning).
     
 * The evaluation files:
     * [evaluation.py](evaluation.py) - This file performs the evaluation of a given model (for the defect reconstruction / defect refinement.)
@@ -65,7 +68,7 @@ Please find a detailed example in the [example.py](example.py) file.
 2) Use [csv_creator.py](csv_creator.py) to create the training/validation/testing CSV files.
 3) Use [preprocessing.py](preprocessing.py) to preprocess the training/validation files.
 4) (Optional) Use the [image_registration.py](image_registration.py) to perform the cross-case image registration to augment the dataset. NOTE: This requires separate library and may take a lot of time (performs more than 20 000 3-D registrations). For an access to the augmented training set, please see [Pretrained models](#pretrained-models)
-5) (Optional) Use the TO DO to perform the image generation-based data augmentation.
+5) (Optional) Use the [vae_augmented_training_set_creation.py](vae_augmented_training_set_creation.py) to perform the image generation-based data augmentation.
 6) Use the [training_implant_reconstruction.py](training_implant_reconstruction.py) to train the defect reconstruction model.
 7) (Optional) Use the [skull_refinement_training_set_creation.py](skull_refinement_training_set_creation.py) to create the training set for the defect refinement.
 8) (Optional) Use the [training_implant_reconstruction.py](training_implant_reconstruction.py) again, this time for the defect refinement.
@@ -84,11 +87,12 @@ In the future work we plan to perform the implant modeling directly, without the
 ## References
 
 If you found the source code useful please cite:
-* TO DO - extended article
+* TODO - Extended Article (after submission)
 
 , and at least one of the following:
+* J. Li, et. al., *Towards Clinical Applicability and Computation Efficiency in Automatic Cranial Implant Design: An overview of the AutoImplant 2021 Cranial Implant Design Challenge*, In Review [Link](TODO)
 * M. Wodzinski, M. Daniol, D. Hemmerling, *Improving the Automatic Cranial Implant Design in Cranioplasty by Linking Different Datasets*,  AutoImplant 2021: Towards the Automization of Cranial Implant Design in Craniplasty II, DOI: 10.1007/978-3-030-92652-6_4 [Link](https://link.springer.com/chapter/10.1007/978-3-030-92652-6_4)
-* TO DO - challenge summary article
+
 
 ## Acknowledgments
 

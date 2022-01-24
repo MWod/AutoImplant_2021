@@ -16,6 +16,9 @@ models_path = pathlib.PurePath(r'D:\Research\AutoImplant\Code\models')
 logs_path = pathlib.PurePath(r'D:\Research\AutoImplant\Code\logs')
 checkpoints_path = pathlib.PurePath(r'D:\Research\AutoImplant\Code\checkpoints')
 
+task_1_gt_path = pathlib.PurePath(r'E:\Data\AutoImplant\Test_Set_Ground_Truth\Task1')
+task_3_gt_path = pathlib.PurePath(r'E:\Data\AutoImplant\Test_Set_Ground_Truth\Task3')
+submissions_path = pathlib.PurePath(r'E:\Data\AutoImplant\Submissions')
 
 ### Paths to not be changed ###
 
@@ -41,19 +44,24 @@ second_step_implant_training_path = second_step_path / "Training_Implant"
 
 combined_vae_training_path = combined_vae_path / "Training"
 
+
 ### Results paths ###
 
 task1_exp1_results_path = results_path / "Task1_Exp1"
 task3_exp1_results_path = results_path / "Task3_Exp1"
 combined_exp2_results_path = results_path / "Combined_Exp2"
 combined_exp3_results_path = results_path / "Combined_Exp3"
+combined_vae_exp1_results_path = results_path / "Combined_VAE_Exp1"
 second_step_exp2_results_path = results_path / "Second_Step_Exp2"
 second_step_exp2a_results_path = results_path / "Second_Step_Exp2a"
 second_step_exp3_results_path = results_path / "Second_Step_Exp3"
 second_step_exp3a_results_path = results_path / "Second_Step_Exp3a"
+second_step_exp4_results_path = results_path / "Second_Step_Exp4"
 implant_modeling_exp1_results_path = results_path / "Implant_Modeling_Exp1"
 implant_modeling_exp2_results_path = results_path / "Implant_Modeling_Exp2"
 implant_modeling_exp3_results_path = results_path / "Implant_Modeling_Exp3"
+implant_modeling_exp4_results_path = results_path / "Implant_Modeling_Exp4"
+results_csv_path = results_path / "CSV"
 
 ### CSV paths ###
 

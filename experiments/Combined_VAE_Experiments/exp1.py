@@ -97,6 +97,7 @@ if __name__ == "__main__":
     # experiment(3)
     # experiment(4)
     # experiment(5)
-    experiment(6)
+    # experiment(6)
+    experiment(7)
     pass
 

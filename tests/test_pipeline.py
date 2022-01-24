@@ -50,9 +50,35 @@ def test_pipeline_1():
     u.show_training_case(complete_skull, defective_skull, np.logical_or(reconstructed_implant, defective_skull), spacing, names=["Input", "Complete Skull", "Reconstructed Skull"], show=False)
     plt.show()
 
+def test_pipeline_2():
+    """
+    Simple pipeline test (just defect reconstruction)
+    """
+    output_path = None
+
+    defective_path = r'E:\Data\AutoImplant\Separate_Test_Set\craniotomy skull\B0028\B0028.nrrd'
+
+    defective_skull, spacing, _ = u.load_volume(defective_path)
+
+    reconstruction_params = dict()
+    reconstruction_params['device'] = "cuda:0"
+    reconstruction_params['reconstruction_model'] = unet
+    reconstruction_params['reconstruction_weights'] = p.combined_vae_exp1_save_path / str("model_cp7")
+    reconstruction_params['defect_refinement'] = False
+    reconstruction_params['implant_modeling'] = False
+    reconstruction_params['initial_opening'] = True
+
+    reconstructed_implant = pp.defect_reconstruction(defective_path, output_path, echo=True, **reconstruction_params)
+
+    print("Spacing: ", spacing)
+
+    u.show_training_case(reconstructed_implant, defective_skull, np.logical_or(defective_skull, reconstructed_implant), spacing, names=["Defective Skull", "Reconstructed Defect", "Complete Skull"], show=False)
+    plt.show()
+
 
 def run():
-    test_pipeline_1()
+    # test_pipeline_1()
+    test_pipeline_2()
     pass
 
 

@@ -2,6 +2,7 @@ import os
 import pathlib
 
 import numpy as np
+import scipy.ndimage as nd
 import torch as tc
 
 import reconstruction_to_implant as rti
@@ -30,6 +31,10 @@ def defect_reconstruction(defective_skull_path, reconstructed_implant_path, echo
         reconstruction_offset = reconstruction_params['reconstruction_offset']
     except KeyError:
         reconstruction_offset = 3
+    try:
+        initial_opening = reconstruction_params['initial_opening']
+    except KeyError:
+        initial_opening = False
 
     ### Defect reconstruction params and model creation
     reconstruction_model = reconstruction_params['reconstruction_model']
@@ -77,6 +82,9 @@ def defect_reconstruction(defective_skull_path, reconstructed_implant_path, echo
     print("Data preprocessing..") if echo else None
     preprocessed_defective_skull, to_pad, internal_shape, padding = u.preprocess_testing_case(defective_skull, spacing,
         reconstruction_spacing, reconstruction_pad_size, reconstruction_size, reconstruction_offset)
+
+    if initial_opening:
+        preprocessed_defective_skull = nd.binary_opening(preprocessed_defective_skull)
 
     ### Perform the defect reconstruction
     print("Defect reconstruction..") if echo else None

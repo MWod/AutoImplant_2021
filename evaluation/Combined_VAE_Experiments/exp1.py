@@ -27,7 +27,7 @@ def evaluation():
     dataset_mode = "defect_implant"
     data_path = p.combined_training_path
     input_csv = p.combined_validation_csv_path
-    initial_weights_path = str(p.combined_vae_exp1_save_path / str("model_cp5"))
+    initial_weights_path = str(p.combined_vae_exp1_save_path / str("model_cp7"))
     dataset_name = "C1_VAE_Val"
 
     log_dir = p.logs_path / experiments_family / experiment_name
