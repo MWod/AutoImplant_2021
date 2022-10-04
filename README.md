@@ -16,15 +16,15 @@ The method aims to propose a method for fully automatic cranial implant reconstr
 The input to the method is a binary mask of the skull with a cranial defect.
 The output of the method is an automatically calculated reconstruction of the cranial defect, or optionally the implant itself (in .nrrd format or .stl ready for 3-D printing). 
 
-TODO - Pipeline Photo
+![Pipeline](https://github.com/MWod/AutoImplant_2021/blob/main/GitHub_Pipeline.png)
 
-TODO - 3-D Printer Output
+![3D](https://github.com/MWod/AutoImplant_2021/blob/main/Github_3D.png)
 
-TODO - Visualization of the output in AR
+![MR](https://github.com/MWod/AutoImplant_2021/blob/main/GitHub_AR.png)
 
-The full descrption of the proposed method is presented in [Link](TODO)
+The full descrption of the proposed method is presented in [Link](https://arxiv.org/abs/2204.06310)
 
-Please find a link to a movie presenting the method outcome: [The Movie](TODO)
+Please find a link to a movie presenting the method outcome: [The Movie](https://www.youtube.com/watch?v=a1IMMtt3ovc)
 
 ## Code structure
 
@@ -87,12 +87,9 @@ In the future work we plan to perform the implant modeling directly, without the
 ## References
 
 If you found the source code useful please cite:
-* TODO - Extended Article (after submission)
-
-, and at least one of the following:
-* J. Li, et. al., *Towards Clinical Applicability and Computation Efficiency in Automatic Cranial Implant Design: An overview of the AutoImplant 2021 Cranial Implant Design Challenge*, In Review [Link](TODO)
+* M. Wodzinski, M. Daniol, M. Socha, D. Hemmerling, M. Stanuch, A. Skalski, *Deep Learning-based Framework for Automatic Cranial Defect Reconstruction and Implant Modeling*, Computer Methods and Programs in Biomedicine, 2022, DOI: TODO [Link](TODO)
 * M. Wodzinski, M. Daniol, D. Hemmerling, *Improving the Automatic Cranial Implant Design in Cranioplasty by Linking Different Datasets*,  AutoImplant 2021: Towards the Automization of Cranial Implant Design in Craniplasty II, DOI: 10.1007/978-3-030-92652-6_4 [Link](https://link.springer.com/chapter/10.1007/978-3-030-92652-6_4)
-
+* J. Li, et. al., *Towards Clinical Applicability and Computation Efficiency in Automatic Cranial Implant Design: An overview of the AutoImplant 2021 Cranial Implant Design Challenge*, In Review [Link](TODO)
 
 ## Acknowledgments
 
