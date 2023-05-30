@@ -87,7 +87,7 @@ In the future work we plan to perform the implant modeling directly, without the
 ## References
 
 If you found the source code useful please cite:
-* M. Wodzinski, M. Daniol, M. Socha, D. Hemmerling, M. Stanuch, A. Skalski, *Deep Learning-based Framework for Automatic Cranial Defect Reconstruction and Implant Modeling*, Computer Methods and Programs in Biomedicine, 2022, DOI: TODO [Link](https://www.sciencedirect.com/science/article/pii/S0169260722005545)
+* M. Wodzinski, M. Daniol, M. Socha, D. Hemmerling, M. Stanuch, A. Skalski, *Deep Learning-based Framework for Automatic Cranial Defect Reconstruction and Implant Modeling*, Computer Methods and Programs in Biomedicine, 2022, DOI: 10.1016/j.cmpb.2022.107173 [Link](https://www.sciencedirect.com/science/article/pii/S0169260722005545)
 * M. Wodzinski, M. Daniol, D. Hemmerling, *Improving the Automatic Cranial Implant Design in Cranioplasty by Linking Different Datasets*,  AutoImplant 2021: Towards the Automization of Cranial Implant Design in Craniplasty II, DOI: 10.1007/978-3-030-92652-6_4 [Link](https://link.springer.com/chapter/10.1007/978-3-030-92652-6_4)
 * J. Li, et. al., *Towards Clinical Applicability and Computation Efficiency in Automatic Cranial Implant Design: An overview of the AutoImplant 2021 Cranial Implant Design Challenge*, In Review [Link](TODO)
 
